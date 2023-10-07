@@ -23,7 +23,7 @@ public class ChessMatch {
 			}
 		}
 		return mat;
-	}
+	} 
 	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
@@ -32,6 +32,12 @@ public class ChessMatch {
 		validateTargetPositiion(source, target);
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece)capturedPiece;
+	}
+	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
 	}
 	
 	public Piece makeMove(Position souce, Position targe) {
